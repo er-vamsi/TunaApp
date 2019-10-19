@@ -62,7 +62,7 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
     return fabric_ca_client.register({enrollmentID: email, affiliation: 'org1.department1'}, admin_user);
 }).then((secret) => {
     // next we need to enroll the user with CA server
-    console.log('Successfully registered' + email + '- secret:'+ secret);
+    console.log('Successfully registered ' + email + '- secret:'+ secret);
     var myquery = { email: email };
     var newvalues = { $set: {HLSecret: secret } };
     User.updateOne(myquery, newvalues, function(err, res) {
